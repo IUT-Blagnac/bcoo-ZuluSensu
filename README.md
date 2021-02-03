@@ -23,3 +23,9 @@ Fix #2.2.3: diagramme de classe de la voiture
 ```
 
 ![Illustration du commit](commit.png)
+TD0
+Réponse 3 : 
+public class Point(){
+  float x;
+  float y;
+}
