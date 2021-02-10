@@ -10,17 +10,18 @@ hide empty methods
 
 class Portable {
  clavier
+ prixachat
+ valeuractuelle
 }
 
-class ClavierType {
- azerty
- qwerty
+class Type {
 }
 
-class Clavier
+Azerty --|> Type
+Qwerty --|> Type
 
-class ClavierTouches{
- touches
+class Clavier{
+  touches
 }
 
 class Propriétaire {
@@ -28,14 +29,9 @@ class Propriétaire {
  Prénom
  }
 
-class PortablePrix {
- prixachat
- valeuractuelle
-}
 
 Portable "1" - "1" Clavier
-Clavier "1" -- "1" ClavierType
-Clavier "1" -- "1..*" ClavierTouches
-Portable "0..*" -- "1" Propriétaire
-Portable "0*..*" --- "1" PortablePrix
+Clavier "1" -- "1" Type
+Portable "1..*" -- "0..*" Propriétaire
+
 @enduml
