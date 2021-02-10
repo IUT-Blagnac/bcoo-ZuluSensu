@@ -1,0 +1,41 @@
+  
+@startuml Ordinateurs Portables
+'--------------------------------
+' Parametres pour le dessin
+'--------------------------------
+hide circle
+hide empty members
+hide empty methods
+'--------------------------------
+
+class Portable {
+ clavier
+}
+
+class ClavierType {
+ azerty
+ qwerty
+}
+
+class Clavier
+
+class ClavierTouches{
+ touches
+}
+
+class Propriétaire {
+ Nom
+ Prénom
+ }
+
+class PortablePrix {
+ prixachat
+ valeuractuelle
+}
+
+Portable "1" - "1" Clavier
+Clavier "1" -- "1" ClavierType
+Clavier "1" -- "1..*" ClavierTouches
+Portable "0..*" -- "1" Propriétaire
+Portable "0*..*" --- "1" PortablePrix
+@enduml
