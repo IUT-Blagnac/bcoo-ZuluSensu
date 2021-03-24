@@ -1,0 +1,25 @@
+@startuml
+actor Client
+
+usecase pr as (passer dans le rayon)
+usecase der as (demander des renseignements)
+usecase pe as (procèder à des essais)
+usecase pa as (prendre des articles)
+usecase ss as (Vérifier stock suffisant)
+usecase pc as (passer à la caisse)
+usecase ra as (regler ses achats)
+usecase mp as (regler avec moyen de paiement)
+usecase r as (regler avec réduction)
+
+pa .> ss : <<ionclude>>
+Client -> pr
+pr <.. der: <<extend>>
+pr <.. pe: <<extend>>
+Client --> pa
+ra <-- pc
+pc <-- Client
+mp --|> ra
+r --|> ra
+
+
+@enduml
