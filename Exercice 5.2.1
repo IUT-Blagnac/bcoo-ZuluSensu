@@ -1,0 +1,44 @@
+# PlantUML Editor
+
+
+
+@startuml
+hide footbox
+participant A as ":Client"
+participant B as ":Caissier"
+participant C as ":Caisse"
+
+A -> B: arrive
+activate B
+
+participant Tapis as ":Tapis"
+
+A -> Tapis: deposerArticles
+activate Tapis
+
+loop "Pour chaque article"
+  B -> Tapis: prendreArticle
+  B -> C: scan(a)
+  activate c
+
+  participant Article as "a:Article"
+  
+  par
+  C --> Article: getPrix()
+  C --> Article: getLibellé()
+  
+  else
+  opt "Qté > 1"
+    B -> C: saisir(Qté)
+  end
+  end
+
+  C --> A: prix et libellé
+  C --> B: prix et libellé
+end
+
+B -> C: fin
+
+  C --> A: montant total
+  C --> B: montant total
+@enduml
